@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Web Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        h1 {
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        input[type=text], input[type=number] {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        input[type=submit] {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kamaraj College of Engineering and Technology</h1>
+        <h3>Web Applications using Django Framework</h3>
+        <h4>Mottaya Samy.K</h4>
+        <h2>Creating and Working with Template</h2>
+        
+        <div class="section">
+            <h3>ODD or EVEN Checker</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="number">Enter a number:</label>
+                <input type="number" name="number" id="number">
+                <input type="submit" name="check_odd_even" value="Check">
+            </form>
+            <p>{{ result }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Name Filter</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="character">Enter a character:</label>
+                <input type="text" name="character" id="character" maxlength="1">
+                <input type="submit" name="search_name" value="Search">
+            </form>
+            <ul>
+                {% for name in filtered_names %}
+                    <li>{{ name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
